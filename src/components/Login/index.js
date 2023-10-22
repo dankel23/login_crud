@@ -17,20 +17,26 @@ export function Login({ navigation }) {
         if (email == '') {
             setMensagemError('E-mail não pode ficar vazio!')
             setStatusError('email')
+            setEmail('')
+            setSenha('')
         } else if (senha == '') {
             setMensagemError('Senha não pode ser em branco')
             setStatusError('senha')
+            setSenha('')
         } else {
             setMensagemError('')
             setStatusError('')
             const resultado = await logar(email, senha)
             if (resultado == 'sucesso') {
-                navigation.replace('ListarAlunos', { email: email })
+                navigation.navigate('ListarAlunos', { email: email })
+                setEmail('')
+                setSenha('')
             } else
                 setStatusSnakbar(true)
             setMensagemSnakbar("E-mail ou senha inválida")
             console.log(resultado)
         }
+        
     }
     return (
         <View style={estilos.containerFundo}>

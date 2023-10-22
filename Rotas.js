@@ -11,9 +11,8 @@ export function Rotas() {
     return (
         <NavigationContainer>
             <Stack.Navigator>
-            <Stack.Screen name='ListarAlunos' component={ListarAlunos} options={{ title: 'Cadastro de Alunos' }} />
                 <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
-                
+                <Stack.Screen name='ListarAlunos' component={ListarAlunos} options={{ title: 'Cadastro de Alunos' }} />
                 <Stack.Screen name='Cadastrar' component={Cadastrar} />
                 <Stack.Screen name='ManterAlunos' component={ManterAlunos} options={{ title: 'Cadastrar/Atualizar Alunos' }}/>
             </Stack.Navigator>
