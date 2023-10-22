@@ -10,7 +10,6 @@ export const estilos = StyleSheet.create({
     card: {
         flexDirection: 'row',
         width: "100%",
-        height: 100,
         borderRadius: 15,
         padding: 10,
         justifyContent: 'space-between',
@@ -35,7 +34,7 @@ export const estilos = StyleSheet.create({
     editButton: {
         height: 40,
         width: 50,
-        backgroundColor: '#6495ED',
+        backgroundColor: 'blue',
         borderRadius: 10,
         padding: 8,
         alignItems: 'center'
@@ -44,7 +43,7 @@ export const estilos = StyleSheet.create({
         marginLeft: 10,
         height: 40,
         width: 50,
-        backgroundColor: '#FA8072',
+        backgroundColor: 'red',
         borderRadius: 10,
         padding: 8,
         alignItems: 'center'

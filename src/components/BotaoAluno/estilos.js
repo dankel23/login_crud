@@ -7,7 +7,7 @@ export const estilos = StyleSheet.create({
         right: 20,
         width: 50,
         height: 50,
-        backgroundColor: '#6495ED',
+        backgroundColor: 'red',
         borderRadius: 25,
         alignItems: 'center',
         justifyContent: 'center',

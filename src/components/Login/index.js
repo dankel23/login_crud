@@ -25,7 +25,7 @@ export function Login({ navigation }) {
             setStatusError('')
             const resultado = await logar(email, senha)
             if (resultado == 'sucesso') {
-                navigation.replace('ListarAlunos', { email: email }) //replace apaga as telas anteriores da pilha. Caso o usuário clique no voltar do celular não volta para a tela de login
+                navigation.replace('ListarAlunos', { email: email })
             } else
                 setStatusSnakbar(true)
             setMensagemSnakbar("E-mail ou senha inválida")
@@ -33,54 +33,57 @@ export function Login({ navigation }) {
         }
     }
     return (
-        <View style={estilos.container}>
-            <Image style={estilos.imagem}
-                source={require('../../../assets/login.jpg')}
-            />
-            <TextInput
-                label="E-mail"
-                value={email}
-                onChangeText={setEmail}
-                mode="outlined"
-                keyboardType="email-address"
-                error={statusError == 'email'}
-                style={estilos.input} />
-            {statusError == 'email' ? <HelperText type="error" visible={statusError == 'email'}>
-                {mensagemError}
-            </HelperText> : null}
-            <TextInput
-                label="Senha"
-                value={senha}
-                onChangeText={setSenha}
-                mode="outlined"
-                error={statusError == 'senha'}
-                secureTextEntry={secureMode}
-                right={
-                    <TextInput.Icon
-                        icon={secureMode ? 'eye-off' : 'eye'}
-                        onPress={() => setSecureMode(!secureMode)}
-                    />
-                }
-                style={estilos.input} />
-            {statusError == 'senha' ? <HelperText type="error" visible={statusError == 'senha'}>
-                {mensagemError}
-            </HelperText> : null}
-            <TouchableOpacity style={estilos.botao} onPress={() => fazerLogin()}>
-                <Text style={estilos.textoButton}>Entrar</Text>
-            </TouchableOpacity>
-            <Text style={estilos.texto}> Ainda não tem uma conta?
-                <Text style={estilos.textoLink}
-                    onPress={() => navigation.navigate('Cadastrar')}> Cadastre-se</Text>
-            </Text>
-            <Snackbar visible={statusSnakbar} onDismiss={() => setStatusSnakbar(false)} duration={2000}
-                action={{
-                    label: 'OK',
-                    onPress: () => {
-                        setStatusSnakbar(false)
-                    },
-                }}>
-                {mensagemSnakbar} 
-            </Snackbar>
+        <View style={estilos.containerFundo}>
+            <Text style={estilos.title}>Login</Text>
+            <View style={estilos.container}>
+                <Image style={estilos.imagem}
+                    source={require('../../../assets/login.jpg')}
+                />
+                <TextInput
+                    label="E-mail"
+                    value={email}
+                    onChangeText={setEmail}
+                    mode="outlined"
+                    keyboardType="email-address"
+                    error={statusError == 'email'}
+                    style={estilos.input} />
+                {statusError == 'email' ? <HelperText type="error" visible={statusError == 'email'}>
+                    {mensagemError}
+                </HelperText> : null}
+                <TextInput
+                    label="Senha"
+                    value={senha}
+                    onChangeText={setSenha}
+                    mode="outlined"
+                    error={statusError == 'senha'}
+                    secureTextEntry={secureMode}
+                    right={
+                        <TextInput.Icon
+                            icon={secureMode ? 'eye-off' : 'eye'}
+                            onPress={() => setSecureMode(!secureMode)}
+                        />
+                    }
+                    style={estilos.input} />
+                {statusError == 'senha' ? <HelperText type="error" visible={statusError == 'senha'}>
+                    {mensagemError}
+                </HelperText> : null}
+                <TouchableOpacity style={estilos.botao} onPress={() => fazerLogin()}>
+                    <Text style={estilos.textoButton}>Entrar</Text>
+                </TouchableOpacity>
+                <Text style={estilos.texto}> Ainda não tem uma conta?
+                    <Text style={estilos.textoLink}
+                        onPress={() => navigation.navigate('Cadastrar')}> Cadastre-se</Text>
+                </Text>
+                <Snackbar visible={statusSnakbar} onDismiss={() => setStatusSnakbar(false)} duration={2000}
+                    action={{
+                        label: 'OK',
+                        onPress: () => {
+                            setStatusSnakbar(false)
+                        },
+                    }}>
+                    {mensagemSnakbar}
+                </Snackbar>
+            </View>
         </View>
     )
 }

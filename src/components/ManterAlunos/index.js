@@ -40,41 +40,44 @@ export function ManterAlunos({ navigation, route }) {
         }
     }
     return (
-        <View style={estilos.container}>
-            <TextInput
-                label="Nome"
-                value={nomeAluno}
-                onChangeText={setNomeAluno}
-                mode="outlined"
-                error={statusErro == 'Nome'}
-                style={estilos.input} />
-            {statusErro == 'Nome' ? <HelperText type="error" visible={statusErro == 'Nome'}>
-                {mensagemErro}
-            </HelperText> : null}
-            <TextInput
-                label="Idade"
-                value={idadeAluno}
-                keyboardType="numeric"
-                onChangeText={setIdadeAluno}
-                mode="outlined"
-                style={estilos.input} />
-            {statusErro == 'idade' ? <HelperText type="error" visible={statusErro == 'idade'}>
-                {mensagemErro}
-            </HelperText> : null}
-            <TextInput
-                label="Turma"
-                value={turmaAluno}
-                keyboardType="numeric"
-                onChangeText={setTurmaAluno}
-                mode="outlined"
-                style={estilos.input} />
-            {statusErro == 'turma' ? <HelperText type="error" visible={statusErro == 'idade'}>
-                {mensagemErro}
-            </HelperText> : null}
-            <TouchableOpacity
-                style={estilos.botao} onPress={() => salvarAluno()}>
-                <Text style={estilos.texto}>Cadastrar</Text>
-            </TouchableOpacity>
+        <View style={estilos.containerFundo}>
+            <Text style={estilos.title}>Cadastrar Aluno</Text>
+            <View style={estilos.container}>
+                <TextInput
+                    label="Nome"
+                    value={nomeAluno}
+                    onChangeText={setNomeAluno}
+                    mode="outlined"
+                    error={statusErro == 'Nome'}
+                    style={estilos.input} />
+                {statusErro == 'Nome' ? <HelperText type="error" visible={statusErro == 'Nome'}>
+                    {mensagemErro}
+                </HelperText> : null}
+                <TextInput
+                    label="Idade"
+                    value={idadeAluno}
+                    keyboardType="numeric"
+                    onChangeText={setIdadeAluno}
+                    mode="outlined"
+                    style={estilos.input} />
+                {statusErro == 'idade' ? <HelperText type="error" visible={statusErro == 'idade'}>
+                    {mensagemErro}
+                </HelperText> : null}
+                <TextInput
+                    label="Turma"
+                    value={turmaAluno}
+                    keyboardType="numeric"
+                    onChangeText={setTurmaAluno}
+                    mode="outlined"
+                    style={estilos.input} />
+                {statusErro == 'turma' ? <HelperText type="error" visible={statusErro == 'idade'}>
+                    {mensagemErro}
+                </HelperText> : null}
+                <TouchableOpacity
+                    style={estilos.botao} onPress={() => salvarAluno()}>
+                    <Text style={estilos.texto}>Cadastrar</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }

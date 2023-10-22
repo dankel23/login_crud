@@ -48,57 +48,59 @@ export function Cadastrar({ navigation }) {
         }
     }
     return (
-        <View style={estilos.container}>
-            <TextInput
-                label="E-mail"
-                keyboardType="email-address"
-                value={email}
-                onChangeText={setEmail}
-                mode="outlined"
-                error={statusError == 'email'}
-                style={estilos.input} />
-            {statusError == 'email' ? <HelperText type="error" visible={statusError == 'email'}>
-                {mensagemError}
-            </HelperText> : null}
-            <TextInput
-                label="Senha"
-                value={senha}
-                onChangeText={setSenha}
-                mode="outlined"
-                error={statusError == 'senha'}
-                secureTextEntry
-                style={estilos.input} />
-            {statusError == 'senha' ? <HelperText type="error" visible={statusError == 'senha'}>
-                {mensagemError}
-            </HelperText> : null}
-            <TextInput
-                label="Confirmar Senha"
-                value={confirmaSenha}
-                onChangeText={setConfirmaSenha}
-                mode="outlined"
-                error={statusError == 'confirmaSenha'}
-                secureTextEntry
-                style={estilos.input} />
-            {statusError == 'confirmaSenha' ? <HelperText type="error" visible={statusError == 'confirmaSenha'}>
-                {mensagemError}
-            </HelperText> : null}
-            <HelperText type="error" visible={statusError == 'senhaNaoConfere'}>
-                {mensagemError}
-            </HelperText>
-            <TouchableOpacity
-                style={estilos.botao} onPress={() => realizarCadastro()}>
-                <Text style={estilos.texto}>Cadastrar</Text>
-            </TouchableOpacity>
-            <Snackbar visible={statusSnakbar} onDismiss={() => setStatusSnakbar(false)} duration={2000}
-                action={{
-                    label: 'OK',
-                    onPress: () => {
-                        setStatusSnakbar(false)
-
-                    },
-                }}>
-                {mensagemSnakbar}
-            </Snackbar>
+        <View style={estilos.containerFundo}>
+            <Text style={estilos.title}>Cadastro</Text>
+            <View style={estilos.container}>
+                <TextInput
+                    label="E-mail"
+                    keyboardType="email-address"
+                    value={email}
+                    onChangeText={setEmail}
+                    mode="outlined"
+                    error={statusError == 'email'}
+                    style={estilos.input} />
+                {statusError == 'email' ? <HelperText type="error" visible={statusError == 'email'}>
+                    {mensagemError}
+                </HelperText> : null}
+                <TextInput
+                    label="Senha"
+                    value={senha}
+                    onChangeText={setSenha}
+                    mode="outlined"
+                    error={statusError == 'senha'}
+                    secureTextEntry
+                    style={estilos.input} />
+                {statusError == 'senha' ? <HelperText type="error" visible={statusError == 'senha'}>
+                    {mensagemError}
+                </HelperText> : null}
+                <TextInput
+                    label="Confirmar Senha"
+                    value={confirmaSenha}
+                    onChangeText={setConfirmaSenha}
+                    mode="outlined"
+                    error={statusError == 'confirmaSenha'}
+                    secureTextEntry
+                    style={estilos.input} />
+                {statusError == 'confirmaSenha' ? <HelperText type="error" visible={statusError == 'confirmaSenha'}>
+                    {mensagemError}
+                </HelperText> : null}
+                <HelperText type="error" visible={statusError == 'senhaNaoConfere'}>
+                    {mensagemError}
+                </HelperText>
+                <TouchableOpacity
+                    style={estilos.botao} onPress={() => realizarCadastro()}>
+                    <Text style={estilos.texto}>Cadastrar</Text>
+                </TouchableOpacity>
+                <Snackbar visible={statusSnakbar} onDismiss={() => setStatusSnakbar(false)} duration={2000}
+                    action={{
+                        label: 'OK',
+                        onPress: () => {
+                            setStatusSnakbar(false)
+                        },
+                    }}>
+                    {mensagemSnakbar}
+                </Snackbar>
+            </View>
         </View>
     )
 }

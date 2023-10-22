@@ -1,9 +1,25 @@
 import { StyleSheet } from "react-native"
 export const estilos = StyleSheet.create({
     container: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        padding: '10px',
+        borderRadius: '8px'
+        
+    },
+    containerFundo: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#2E993F',
+    },
+    title: {
+        fontSize: '60px',
+        margin: '8px',
+        color: 'white',
+        fontFamily: 'arial',
+        fontWeight: 'bold'
     },
     imagem:{
         width: 300, 
